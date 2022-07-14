@@ -1,0 +1,14 @@
+Directives are instructions in the DOM!
+
+
+@Directive({
+    selector:'[appTurnGreen]'
+})
+
+export class TurnGreenDirective {
+    ..
+}
+
+we can use this directive as below
+
+<p appturnGreen> Receives a green background!</p>

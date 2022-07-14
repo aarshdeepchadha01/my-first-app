@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: '[app-servers]',
+  
   // template: `
   //   <app-server></app-server>
   //   <app-server></app-server>`,
@@ -16,6 +17,10 @@ export class ServersComponent implements OnInit {
 
   username = '';
 
+
+  serverCreated = false;
+
+  servers = ['Testserver', 'Testserver'];
   
   constructor() { 
     setTimeout(() => {
@@ -27,6 +32,8 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer() {
+    this.serverCreated = true;
+    this.servers.push(this.serverName);
     this.serverCreationStatus = 'Server was created! Name is ' + this.serverName;
   }
 
@@ -34,6 +41,8 @@ export class ServersComponent implements OnInit {
     this.serverName = (<HTMLInputElement> event.target).value;
 
   }
+
+  
 
 
 

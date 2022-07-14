@@ -1,0 +1,22 @@
+<ol>
+    <li>Add a button which says 'Display details</li>
+    <li>add a paragraph wuth any content of your voice </li>
+    <li>toogle the displaying of that para with the button created in the first page </li>
+    <li>log all button clicks in an array and output that arrat below the secret para</li>
+    <li>starting at the 5th log item, give all fuutre log items a blue background via ngStyle and white color</li>
+</ol>
+
+<div>
+    <hr>
+    <!-- <button class="btn btn-primary" (click)="showSecret = !showSecret"> Display Details </button> -->
+        <button class="btn btn-primary" (click)="onToggleDetails()">
+            Display Details!
+        </button>
+    <p *ngIf="showSecret">Secret Password = tuna</p>
+    <!-- <div *ngFor="let logItem of log; let i = index"
+    [ngStyle]="{backgroundColor: logItem >= 5 ? 'blue' : 'transparent'}"
+    [ngClass]="{'white-text' : logItem >= 5}">{{ logItem }}</div> -->
+    <div *ngFor="let logItem of log; let i = index"
+    [ngStyle]="{backgroundColor: i >= 5 ? 'blue' : 'transparent'}"
+    [ngClass]="{'white-text' : i >= 5}">{{ logItem }}</div>
+</div>
