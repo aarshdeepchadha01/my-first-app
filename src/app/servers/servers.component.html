@@ -1,2 +1,75 @@
+<button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
+<!-- "disabled" is a example of  property binding  -->
+<p [innerText] = "allowNewServer"></p>
+<p>{{allowNewServer}}</p>
+ <!-- two way of writing same thing as the above version 
+is property binding and lower one is string interpolation -->
 <app-server></app-server>
 <app-server></app-server>
+
+
+<hr>
+<!-- ""()":`used for event binding!`  this is an example of event binding!" -->
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click) = "onCreateServer()" >Add Server with Status change </button>
+<p> {{ serverCreationStatus}} </p>
+
+
+<hr>
+<!-- `$ sign event is the data emited in that event/ $ sign event to fetch the data generated in the event! ` -->
+<label>Server Name</label>
+<input 
+        type="text"
+        class = "form-control"
+        (input) = "onUpdateServerName($event)">
+<p>{{serverName}}</p>
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click) = "onCreateServer()" >Add Server with Status change </button>
+<p> {{ serverCreationStatus}} </p>
+
+
+<hr>
+
+<!-- example of two way binding and also to use ngModel we have to add FormsModule unde import section in app.mpodule.ts file otherwise the angular will not know which data is being called-->
+<label>Server Name</label>
+<input 
+        type="text"
+        class = "form-control"
+        [(ngModel)] = "serverName">
+<p>{{serverName}}</p>
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click) = "onCreateServer()" >Add Server with Status change </button>
+<p> {{ serverCreationStatus}} </p>
+
+<hr>
+<!-- another example od combing all forms as we made change in servers.component.html file by adding this.serverName which uses databinding -->
+<label>Server Name</label>
+<input 
+        type="text"
+        class = "form-control"
+        [(ngModel)] = "serverName">
+<!-- <p>{{serverName}}</p> -->
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click) = "onCreateServer()" >Add Server with Status change </button>
+<p> {{ serverCreationStatus}} </p>
+
+
+<hr>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h3>
+                <li>Add a input field which updates a porperty username via two-way-binding</li>
+                <li>Output the username property via String interpolation in Paragraph tag</li>
+                <li> Add a a button which may only be clicked if the username is NOT an empty String</li>
+                <li>upon clicking the button, the username should be reset to an empty string</li>
+            </h3>
+            <label>Username</label>
+            <input type="text" class="form-control" [(ngModel)] ="username">
+            <p>{{username}}</p>
+            <button 
+                    class="btn btn-primary" 
+                    [disabled] = "username === ''" 
+                    (click)="username = ''">Reset User</button>
+        </div>
+    </div>
+</div>
